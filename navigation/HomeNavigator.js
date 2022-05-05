@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { HomeScreen } from "../screen/HomeScreen";
-import { MangaViewScreen } from "../screen/MangaViewScreen";
+import { HomeScreen } from "../screens/HomeScreen";
+import { MangaViewScreen } from "../screens/MangaViewScreen";
 
 const Stack = createNativeStackNavigator();
 
