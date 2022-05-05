@@ -2,13 +2,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { LeftDrawerNavigator } from "./LeftDrawerNavigator";
 import { RightDrawerContent } from "../components/navigation/RightDrawerContent";
-import { WIDTH } from "../styles";
 
 const screenOptions = {
   drawerPosition: "right",
   headerShown: false,
   drawerType: "slide",
-  swipeEdgeWidth: WIDTH / 3,
+  swipeEdgeWidth: 50,
   swipeMinDistance: 1,
   unmountOnBlur: true,
   overlayColor: "transparent",
