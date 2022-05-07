@@ -3,7 +3,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 
 import { useError } from "./common";
-import { urls } from "../constants/urls";
+import { BASE_URL, urls } from "../constants/urls";
 
 export const useChapterDetails = (mangaId, chapterId) => {
   const url = urls.chapterDetails
@@ -30,7 +30,7 @@ export const useChapterDetails = (mangaId, chapterId) => {
           if (image) {
             images.push({
               uri: image,
-              referer: url,
+              referer: BASE_URL,
             });
           }
         });

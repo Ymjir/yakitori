@@ -1,5 +1,7 @@
+export const BASE_URL = "https://readmanganato.com/";
+
 export const urls = {
   genreAll: "https://manganato.com/genre-all/:pageNo",
-  getDetails: "https://readmanganato.com/:mangaId",
-  chapterDetails: "https://readmanganato.com/:mangaId/:chapterId",
+  getDetails: `${BASE_URL}:mangaId`,
+  chapterDetails: `${BASE_URL}:mangaId/:chapterId`,
 };

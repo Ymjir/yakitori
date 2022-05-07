@@ -18,15 +18,23 @@ export const AutoScaleImage = ({ style, uri, headers, ...restProps }) => {
 
   useEffect(() => {
     if (!flattenedStyles.width || !flattenedStyles.height) {
-      Image.getSizeWithHeaders(uri, headers, (w, h) => {
-        const ratio = w / h;
-        setSize({
-          width: flattenedStyles.width || ratio * flattenedStyles.height || 0,
-          height: flattenedStyles.height || flattenedStyles.width / ratio || 0,
-        });
-      });
+      Image.getSizeWithHeaders(
+        uri,
+        headers,
+        (w, h) => {
+          const ratio = w / h;
+          setSize({
+            width: flattenedStyles.width || ratio * flattenedStyles.height || 0,
+            height:
+              flattenedStyles.height || flattenedStyles.width / ratio || 0,
+          });
+        },
+        (e) => {
+          console.log("error", e);
+        }
+      );
     }
-  }, [uri, flattenedStyles.width, flattenedStyles.height]);
+  }, [uri, headers, flattenedStyles.width, flattenedStyles.height]);
 
   return (
     <Image
