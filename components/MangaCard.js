@@ -7,10 +7,10 @@ import {
   Dimensions,
   Pressable,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Rating } from "./Rating";
 import { colors } from "../styles";
-import { useNavigation } from "@react-navigation/native";
 
 const height = Dimensions.get("window").height;
 

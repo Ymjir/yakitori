@@ -73,7 +73,7 @@ export const useManga = () => {
         setError(e.message);
         setIsRefreshing(false);
       });
-  }, [pageNo]);
+  }, [pageNo, setError]);
 
   useEffect(() => {
     getManga();

@@ -97,7 +97,7 @@ export const useMangaDetails = (mangaId) => {
         setError(e.message);
         setIsLoading(false);
       });
-  }, [mangaId]);
+  }, [mangaId, setError]);
 
   return [manga, isLoading];
 };

@@ -1,5 +1,6 @@
 import { FlatList, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useCallback } from "react";
 
 import MangaCard from "../../components/MangaCard";
 import { useManga } from "../../hooks/useManga";
@@ -10,15 +11,15 @@ const CARD_MARGIN = 10;
 export const Home = () => {
   const [manga, setPageNo, isRefreshing] = useManga();
 
-  const onEndReached = () => {
+  const onEndReached = useCallback(() => {
     if (!isRefreshing) {
       setPageNo((prevState) => prevState + 1);
     }
-  };
+  }, [isRefreshing]);
 
-  const onRefresh = () => {
+  const onRefresh = useCallback(() => {
     setPageNo(1);
-  };
+  }, []);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -42,22 +43,18 @@ export const Home = () => {
   );
 };
 
-const renderItems = ({ item, index }) => {
-  return (
-    <MangaCard
-      {...item}
-      cardStyles={{
-        marginRight: CARD_MARGIN,
-        marginTop: index < 3 ? CARD_MARGIN : 0,
-      }}
-    />
-  );
-};
+const renderItems = ({ item, index }) => (
+  <MangaCard
+    {...item}
+    cardStyles={{
+      marginRight: CARD_MARGIN,
+      marginTop: index < 3 ? CARD_MARGIN : 0,
+    }}
+  />
+);
 
-const Header = () => {
-  return (
-    <View style={{ paddingHorizontal: 12, paddingTop: 12 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold" }}>Explore Manga</Text>
-    </View>
-  );
-};
+const Header = () => (
+  <View style={{ paddingHorizontal: 12, paddingTop: 12 }}>
+    <Text style={{ fontSize: 24, fontWeight: "bold" }}>Explore Manga</Text>
+  </View>
+);
